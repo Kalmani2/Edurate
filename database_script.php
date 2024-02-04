@@ -29,7 +29,47 @@
       echo "Error: " . $stmt->error;
     }
 
-    $stmt->close();    
+    $stmt->close();
+  }
+
+  function AddLecturerReview()
+  {
+    $user_id = "user_id"; //will need to get from front
+    $lecturer_id = "lecturer_id";
+    $rating = "rating";
+    $review_text = "";
+
+    $sql = "INSERT INTO LecturerReviews (user_id, lecturer_id, rating, review_text) VALUES (?, ?, ?, ?)";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ssss", $user_id, $lecturer_id, $rating, $review_text);
+
+    if($stmt->execute()){
+      echo "Lecturer Review added";
+    }else{
+      echo "Error: " . $stmt->error;
+    }
+
+    $stmt->close();
+  }
+
+  function AddCourseReview()
+  {
+    $user_id = "user_id"; //will need to get from front
+    $course_id = "course_id";
+    $rating = "rating";
+    $review_text = "";
+
+    $sql = "INSERT INTO CourseReviews (user_id, course_id, rating, review_text) VALUES (?, ?, ?, ?)";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ssss", $user_id, $course_id, $rating, $review_text);
+
+    if($stmt->execute()){
+      echo "Course Review added";
+    }else{
+      echo "Error: " . $stmt->error;
+    }
+
+    $stmt->close();
   }
 
 ?>
