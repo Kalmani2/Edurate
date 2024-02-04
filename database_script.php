@@ -14,14 +14,14 @@
 
   function AddUser()
   {
-    $first_name = "first_name"; //will need to get from front
-    $last_name = "last_name"; //will need to get from front
+    $forename = "forename"; //will need to get from front
+    $surname = "surname"; //will need to get from front
     $password = "password";
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-    $sql = "INSERT INTO Users (first_name, last_name, password) VALUES (?, ?, ?)";
+    $sql = "INSERT INTO Users (forename, surname, password) VALUES (?, ?, ?)";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("sss", $first_name, $last_name, $hashed_password);
+    $stmt->bind_param("sss", $forename, $surname, $hashed_password);
 
     if($stmt->execute()){
       echo "User added";
@@ -70,6 +70,66 @@
     }
 
     $stmt->close();
-  }
+
+
+    function getUser($id)
+    {
+      $sql = "SELECT forename, surname, password FROM user
+              WHERE  userId = :id";
+      $stmt = $conn->prepare($sql);
+      $stmt->execute([
+                    'id' => $id
+                    ]);
+      $stmt->setFetchMode(PDO::FETCH_ASSOC);
+      while ($row = $stmt->fetch())//print to front end
+      {
+        echo("<br>" . $row['forename'] . " " . $row['surname'] . " " . $row['password']);
+      }
+    }
+
+    function getLecturerReviews($id)
+    {
+      $sql = "SELECT rating, review_text FROM LecturerReviews
+              WHERE  lecturer_id = :id";
+      $stmt = $conn->prepare($sql);
+      $stmt->execute([
+                    'id' => $id
+                    ]);
+      $stmt->setFetchMode(PDO::FETCH_ASSOC);
+      while ($row = $stmt->fetch())//print to front end
+      {
+        echo("<br>" . $row['rating'] . " " . $row['review_text']);
+      }
+    }
+
+    function getCourseReviews($id)
+    {
+      $sql = "SELECT rating, review_text FROM CourseReviews
+              WHERE  course_id = :id";
+      $stmt = $conn->prepare($sql);
+      $stmt->execute([
+                    'id' => $id
+                    ]);
+      $stmt->setFetchMode(PDO::FETCH_ASSOC);
+      while ($row = $stmt->fetch())//print to front end
+      {
+        echo("<br>" . $row['rating'] . " " . $row['review_text']);
+      }
+    }
+
+    function getUserReviews($id)
+    {
+      $sql = "SELECT rating, review_text FROM LecturerReviews, CourseReviews
+              WHERE  user_id = :id";
+      $stmt = $conn->prepare($sql);
+      $stmt->execute([
+                    'id' => $id
+                    ]);
+      $stmt->setFetchMode(PDO::FETCH_ASSOC);
+      while ($row = $stmt->fetch())//print to front end
+      {
+        echo("<br>" . $row['rating'] . " " . $row['review_text']);
+      }
+    }
 
 ?>
