@@ -11,7 +11,7 @@ const BodySection = () => {
           <label htmlFor="fname">Text</label><br />
           <input type="text" id="fname" name="fname" /><br />
           <input type="submit" value="Submit" />
-        </form>   /*Remove after testing toxicity function*/
+        </form>   {/*Remove after testing toxicity function*/}
     </div>
   );
 };
