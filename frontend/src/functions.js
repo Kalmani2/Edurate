@@ -1,7 +1,7 @@
 export function checkForToxicity(user_text) {
   const apiKey = 'AIzaSyCTq-XnRpUNgCHTc85jCdjvYIIZBREhIVg'
-  const url = `https://commentanalyzer.googleapis.com/$discovery/rest?version=v1alpha1comments:analyze?key=${apiKey}`;
-  
+  const url = `https://commentanalyzer.googleapis.com/v1alpha1/comments:analyze?key=AIzaSyCTq-XnRpUNgCHTc85jCdjvYIIZBREhIVg`;
+  const backend_url = 'http://localhost:8000/api/check_toxicity';
 
   const parameters = {
     comment: { text: user_text },
