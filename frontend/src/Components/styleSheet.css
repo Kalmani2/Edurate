@@ -1,0 +1,55 @@
+/* Home.css */
+
+body {
+    margin: 0; /* Remove default margin to ensure full-width background */
+    padding: 0; /* Remove default padding */
+    background-color: rgb(103, 42, 145); /* Set the background color for the entire page */
+  }
+
+/* Navbar.css */
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 35px;
+    background-color: #ffffff; 
+  }
+  
+  .navbar-links-container {
+    font-size: larger;
+    display: flex;
+    gap: 30px;
+    color: white;
+  }
+
+  .navbar-links-container a {
+    color: black; /* Set your desired link color */
+    text-decoration: none; /* Remove default underline */
+  }
+  
+  .primary-button{
+    align-items:end;
+  }
+  
+
+/* bodySection css*/
+
+.home-container {
+    padding: 20px;
+  }
+  
+  .body-section {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  .body-section h1 {
+    font-size: 4em;
+    color: white;
+  }
+  
+  .body-section p {
+    font-size: 1.2em;
+    color: #ffffff;
+  }
