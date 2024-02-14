@@ -23,15 +23,24 @@ export function checkForToxicity(event) {
     .then(response => response.json())
     .then(data => {
       console.log(data);
+
+      const toxicityScore = data.attributeScores.TOXICITY.summaryScore.value;
+      console.log('Toxicity Score:', toxicityScore);
+      handleComment(toxicityScore);
+
     })
-    // .then(data => {
-    //   // Accesses the probability
-    //   const toxicityScore = data.attributeScores.TOXICITY.summaryScore.value;
-    //   console.log('Toxicity Score:', toxicityScore);
     
-      
-    // })
     .catch(error => {
       console.error('Error:', error);
     })
+}
+
+function handleComment(toxicityScore) {
+  if (toxicityScore > 0.7) {
+    console.log('After reviewing, this comment seems to be toxic. Please consider revising it');
+  } else if (toxicityScore > 0.4) {
+    console.log('After reviewing, this comment seems to be innapropriate. Please consider revising it');
+  } else {
+    console.log('Comment is not toxic');
+  }
 }
