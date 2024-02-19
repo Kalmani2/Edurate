@@ -1,12 +1,12 @@
 import './App.css';
-import Home from './Components/Home';
+import Home from './Pages/home/Home';
+import Review from './Pages/submit_reviews/Review.js';
 import {checkForToxicity} from './functions.js';
 
 function App() {
   return (
     <div className="App">
       <Home />
-      <h1>Testing the function</h1>
     </div>
   );
 }
