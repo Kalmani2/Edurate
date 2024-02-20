@@ -1,7 +1,5 @@
 import React, { useState } from 'react'
-import { HiOutlineBars3 } from "react-icons/hi2"
-import HomeIcon from "@mui/icons-material/Home"
-import './styleSheet.css';
+import './navStyle.css';
 
 const Navbar = () => {
 
@@ -9,7 +7,7 @@ const Navbar = () => {
     const menuOptions = [
         {
             text:"Home",
-            icon:<HomeIcon/>
+            //icon:<HomeIcon/>
         },
         {
             text:"About",
@@ -35,7 +33,6 @@ const Navbar = () => {
         
     </div>
     <div className='navbar-menu-container'>
-        <HiOutlineBars3 onClick={() => setOpenMenu(true)}/>
     </div>
   </nav>)
 }
