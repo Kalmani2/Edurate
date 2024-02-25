@@ -12,16 +12,13 @@
   }
 
 
-  function AddUser()
+  function AddUser($data)
   {
-    $forename = "forename"; //will need to get from front
-    $surname = "surname"; //will need to get from front
-    $password = "password";
-    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT);//might not need password if using authentication
 
     $sql = "INSERT INTO Users (forename, surname, password) VALUES (?, ?, ?)";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("sss", $forename, $surname, $hashed_password);
+    $stmt->bind_param("sss", $data['forename'], $data['surname'], $hashed_password);
 
     if($stmt->execute()){
       echo "User added";
@@ -32,16 +29,12 @@
     $stmt->close();
   }
 
-  function AddLecturerReview()
+  function AddLecturerReview($data)
   {
-    $user_id = "user_id"; //will need to get from front
-    $lecturer_id = "lecturer_id";
-    $rating = "rating";
-    $review_text = "";
 
     $sql = "INSERT INTO LecturerReviews (user_id, lecturer_id, rating, review_text) VALUES (?, ?, ?, ?)";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ssss", $user_id, $lecturer_id, $rating, $review_text);
+    $stmt->bind_param("ssss", $data['user_id'], $data['lecturer_id'], $data['rating'], $data['review_text']);
 
     if($stmt->execute()){
       echo "Lecturer Review added";
@@ -54,14 +47,10 @@
 
   function AddCourseReview()
   {
-    $user_id = "user_id"; //will need to get from front
-    $course_id = "course_id";
-    $rating = "rating";
-    $review_text = "";
 
     $sql = "INSERT INTO CourseReviews (user_id, course_id, rating, review_text) VALUES (?, ?, ?, ?)";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ssss", $user_id, $course_id, $rating, $review_text);
+    $stmt->bind_param("ssss", $data['user_id'], $data['course_id'], $data['rating'], $data['review_text']);
 
     if($stmt->execute()){
       echo "Course Review added";
@@ -74,17 +63,14 @@
 
     function getUser($id)
     {
-      $sql = "SELECT forename, surname, password FROM user
+      $sql = "SELECT forename, surname, `password` FROM user
               WHERE  userId = :id";
       $stmt = $conn->prepare($sql);
       $stmt->execute([
                     'id' => $id
                     ]);
       $stmt->setFetchMode(PDO::FETCH_ASSOC);
-      while ($row = $stmt->fetch())//print to front end
-      {
-        echo("<br>" . $row['forename'] . " " . $row['surname'] . " " . $row['password']);
-      }
+      echo("<br>" . $row['forename'] . " " . $row['surname'] . " " . $row['password']);
     }
 
     function getLecturerReviews($id)
@@ -96,10 +82,48 @@
                     'id' => $id
                     ]);
       $stmt->setFetchMode(PDO::FETCH_ASSOC);
+      $output = array();
       while ($row = $stmt->fetch())//print to front end
       {
-        echo("<br>" . $row['rating'] . " " . $row['review_text']);
+        array_push($output, $row);
       }
+      echo json_encode($output);
+    }
+
+    function getLecturerReviewsByRatingDescending($id)
+    {
+      $sql = "SELECT rating, review_text FROM LecturerReviews
+              WHERE  lecturer_id = :id
+              ORDER BY rating DESC";
+      $stmt = $conn->prepare($sql);
+      $stmt->execute([
+                    'id' => $id
+                    ]);
+      $stmt->setFetchMode(PDO::FETCH_ASSOC);
+      $output = array();
+      while ($row = $stmt->fetch())//print to front end
+      {
+        array_push($output, $row);
+      }
+      echo json_encode($output);
+    }
+
+    function getLecturerReviewsByRatingAscending($id)
+    {
+      $sql = "SELECT rating, review_text FROM LecturerReviews
+              WHERE  lecturer_id = :id
+              ORDER BY rating ASC";
+      $stmt = $conn->prepare($sql);
+      $stmt->execute([
+                    'id' => $id
+                    ]);
+      $stmt->setFetchMode(PDO::FETCH_ASSOC);
+      $output = array();
+      while ($row = $stmt->fetch())//print to front end
+      {
+        array_push($output, $row);
+      }
+      echo json_encode($output);
     }
 
     function getCourseReviews($id)
@@ -111,10 +135,48 @@
                     'id' => $id
                     ]);
       $stmt->setFetchMode(PDO::FETCH_ASSOC);
+      $output = array();
       while ($row = $stmt->fetch())//print to front end
       {
-        echo("<br>" . $row['rating'] . " " . $row['review_text']);
+        array_push($output, $row);
       }
+      echo json_encode($output);
+    }
+
+    function getCourseReviewsByRatingDescending($id)
+    {
+      $sql = "SELECT rating, review_text FROM CourseReviews
+              WHERE  course_id = :id
+              ORDER BY rating DESC";
+      $stmt = $conn->prepare($sql);
+      $stmt->execute([
+                    'id' => $id
+                    ]);
+      $stmt->setFetchMode(PDO::FETCH_ASSOC);
+      $output = array();
+      while ($row = $stmt->fetch())//print to front end
+      {
+        array_push($output, $row);
+      }
+      echo json_encode($output);
+    }
+
+    function getCourseReviewsByRatingAscending($id)
+    {
+      $sql = "SELECT rating, review_text FROM CourseReviews
+              WHERE  course_id = :id
+              ORDER BY rating ASC";
+      $stmt = $conn->prepare($sql);
+      $stmt->execute([
+                    'id' => $id
+                    ]);
+      $stmt->setFetchMode(PDO::FETCH_ASSOC);
+      $output = array();
+      while ($row = $stmt->fetch())//print to front end
+      {
+        array_push($output, $row);
+      }
+      echo json_encode($output);
     }
 
     function getUserReviews($id)
@@ -126,10 +188,12 @@
                     'id' => $id
                     ]);
       $stmt->setFetchMode(PDO::FETCH_ASSOC);
+      $output = array();
       while ($row = $stmt->fetch())//print to front end
       {
-        echo("<br>" . $row['rating'] . " " . $row['review_text']);
+        array_push($output, $row);
       }
+      echo json_encode($output);
     }
 
 ?>
