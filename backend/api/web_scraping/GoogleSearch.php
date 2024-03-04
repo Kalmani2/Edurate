@@ -7,7 +7,7 @@ function google_search($query){
 
     curl_setopt($curl_handle, CURLOPT_URL, $url);
     //return the transfer as a string instead of displaying it
-    curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, true); 
+    curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, true);
 
     $response = curl_exec($curl_handle);
     curl_close($curl_handle);

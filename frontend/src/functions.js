@@ -1,7 +1,8 @@
-
 export function checkForToxicity(event) {
   event.preventDefault();
-  const user_text = document.getElementById('text').value;
+  // const user_text = document.getElementById('text').value;
+  const user_text = event.target.review.value
+
 
   const apiKey = 'AIzaSyCTq-XnRpUNgCHTc85jCdjvYIIZBREhIVg'
   const url = `https://commentanalyzer.googleapis.com/v1alpha1/comments:analyze?key=AIzaSyCTq-XnRpUNgCHTc85jCdjvYIIZBREhIVg`;
