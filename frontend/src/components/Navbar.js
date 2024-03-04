@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import './navStyle.css';
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
 
@@ -24,13 +25,10 @@ const Navbar = () => {
 
     </div>
     <div className='navbar-links-container'>
-        <a href="">Home</a>
-        <a href="">About</a>
-        <a href="">Contacts</a>
-    <div className='login-button'>
-        <a href="">Login</a>
-    </div>
-        
+        <Link to="/">Home</Link>
+        <Link to="/">About</Link>
+        <Link to="/">Contacts</Link>
+        <Link to="/">Login</Link>
     </div>
     <div className='navbar-menu-container'>
     </div>
