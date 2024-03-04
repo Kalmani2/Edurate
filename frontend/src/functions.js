@@ -49,7 +49,7 @@ function handleComment(toxicityScore) {
 
 
 export function reviewCourseUnit(userID, courseUnitID, rating, review) {
-  const url = 'http://localhost:8000/api/course';
+  const url = 'http://localhost:8000/api/addCourseReview.php';
 
   fetch(url, {
     body: JSON.stringify({userID, courseUnitID, rating, review
@@ -63,3 +63,54 @@ export function reviewCourseUnit(userID, courseUnitID, rating, review) {
   });
 
 }
+
+export function reviewLecturer(userID, lecturerID, rating, review) {
+  const url = 'http://localhost:8000/api/addLecturerReview.php';
+
+  fetch(url, {
+    body: JSON.stringify({userID, lecturerID, rating, review
+    }),
+  })
+  .then(response => response.json())
+  .then(data => console.log(data))
+  // if null, maybe try to find an error message
+  .catch((error) => {
+    console.error('Error:', error);
+  });
+
+}
+
+// export function getLecturerReviews(lecturerID) {
+//   const url = 'http://localhost:8000/api/getLecturerReviews.php?';
+//   data = JSON.stringify({lecturerID});
+
+//   fetch(url, data)
+//     .then(response => response.json())
+//     .then(data => console.log(data))
+//     .catch((error) => {
+//       console.error('Error:', error);
+//     });
+//     displayCourseReviews();
+// }
+
+// export function getCourseReviews(courseID) {
+//   const url = 'http://localhost:8000/api/getCourseReviews.php?';
+//   course = JSON.stringify({courseID});
+
+//   fetch(url, course)
+//     .then(response => response.json())
+//     .then(data => console.log(data))           //call function that formats and displays the different reviews
+//     .catch((error) => {
+//       console.error('Error:', error);
+//     });
+
+//     displayCourseReviews(data);
+// }
+
+// function displayCourseReviews(data) {
+//   //display the reviews
+// }
+
+// function displayLecturerReviews(data) {
+//   //display the reviews
+// }

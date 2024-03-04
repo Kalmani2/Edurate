@@ -1,6 +1,6 @@
 <?php
 
-
+require_once 'GoogleSearch.php';
 $data = json_decode(file_get_contents('php://input'), true);
 
 $subject = $data['query'];

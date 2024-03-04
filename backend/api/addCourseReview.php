@@ -11,13 +11,14 @@ $data = json_decode($fetchedData, true);
 AddCourseReview($data); //edit the function so it actually works
 
 $response = [
-    "message" => "Course review added!",
+    "fetch status" => "fetch was excecuted",
 ];
 
 // could add error message
 
 
 echo json_encode($response);
+//could get response as the return of the function
 
 
 
