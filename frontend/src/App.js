@@ -6,7 +6,7 @@ import {checkForToxicity} from './functions.js';
 function App() {
   return (
     <div className="App">
-      <Review />
+      <Home />
     </div>
   );
 }
