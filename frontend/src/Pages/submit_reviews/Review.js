@@ -3,7 +3,7 @@ import Navbar from '../../components/Navbar';
 import { checkForToxicity } from '../../functions.js';
 
 const Review = () => {
-  // Function to handle form submission (you can replace the console.log with your logic)
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Rating:', e.target.rating.value);
