@@ -4,6 +4,7 @@
   require_once('config.inc.php');
 
   // Connect to the group database
+  global $conn;
   $conn = new mysqli($database_host, $database_user, $database_pass, $group_dbnames[0]);
 
   // Check for errors before doing anything else
@@ -14,7 +15,9 @@
 
   function AddUser($data)
   {
-    $hashed_password = password_hash($password, PASSWORD_DEFAULT);//might not need password if using authentication
+    global $conn;
+
+    $hashed_password = password_hash($data['password'], PASSWORD_DEFAULT);//might not need password if using authentication
 
     $sql = "INSERT INTO Users (forename, surname, password) VALUES (?, ?, ?)";
     $stmt = $conn->prepare($sql);
@@ -32,6 +35,8 @@
   function AddLecturerReview($data)
   {
 
+    global $conn;
+
     $sql = "INSERT INTO LecturerReviews (user_id, lecturer_id, rating, review_text) VALUES (?, ?, ?, ?)";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("ssss", $data['user_id'], $data['lecturer_id'], $data['rating'], $data['review_text']);
@@ -45,8 +50,10 @@
     $stmt->close();
   }
 
-  function AddCourseReview()
+  function AddCourseReview($data)
   {
+    global $conn;
+
 
     $sql = "INSERT INTO CourseReviews (user_id, course_id, rating, review_text) VALUES (?, ?, ?, ?)";
     $stmt = $conn->prepare($sql);
@@ -60,9 +67,14 @@
 
     $stmt->close();
 
+  }
+
 
     function getUser($id)
     {
+
+      global $conn;
+
       $sql = "SELECT forename, surname, `password` FROM user
               WHERE  userId = :id";
       $stmt = $conn->prepare($sql);
@@ -70,11 +82,14 @@
                     'id' => $id
                     ]);
       $stmt->setFetchMode(PDO::FETCH_ASSOC);
-      echo("<br>" . $row['forename'] . " " . $row['surname'] . " " . $row['password']);
+      echo json_encode($stmt);
     }
 
     function getLecturerReviews($id)
     {
+
+      global $conn;
+
       $sql = "SELECT rating, review_text FROM LecturerReviews
               WHERE  lecturer_id = :id";
       $stmt = $conn->prepare($sql);
@@ -92,6 +107,9 @@
 
     function getLecturerReviewsByRatingDescending($id)
     {
+
+      global $conn;
+
       $sql = "SELECT rating, review_text FROM LecturerReviews
               WHERE  lecturer_id = :id
               ORDER BY rating DESC";
@@ -110,6 +128,9 @@
 
     function getLecturerReviewsByRatingAscending($id)
     {
+
+      global $conn;
+
       $sql = "SELECT rating, review_text FROM LecturerReviews
               WHERE  lecturer_id = :id
               ORDER BY rating ASC";
@@ -128,6 +149,9 @@
 
     function getCourseReviews($id)
     {
+
+      global $conn;
+
       $sql = "SELECT rating, review_text FROM CourseReviews
               WHERE  course_id = :id";
       $stmt = $conn->prepare($sql);
@@ -145,6 +169,8 @@
 
     function getCourseReviewsByRatingDescending($id)
     {
+      global $conn;
+
       $sql = "SELECT rating, review_text FROM CourseReviews
               WHERE  course_id = :id
               ORDER BY rating DESC";
@@ -163,6 +189,8 @@
 
     function getCourseReviewsByRatingAscending($id)
     {
+      global $conn;
+
       $sql = "SELECT rating, review_text FROM CourseReviews
               WHERE  course_id = :id
               ORDER BY rating ASC";
@@ -181,6 +209,8 @@
 
     function getUserReviews($id)
     {
+      global $conn;
+
       $sql = "SELECT rating, review_text FROM LecturerReviews, CourseReviews
               WHERE  user_id = :id";
       $stmt = $conn->prepare($sql);
@@ -196,4 +226,21 @@
       echo json_encode($output);
     }
 
-?>
+    function getCourseUnits($id)
+    {
+      global $conn;
+
+      $sql = "SELECT * FROM CourseUnits
+              WHERE  course_id = :id";
+      $stmt = $conn->prepare($sql);
+      $stmt->execute([
+                    'id' => $id
+                    ]);
+      $stmt->setFetchMode(PDO::FETCH_ASSOC);
+      $output = array();
+      while ($row = $stmt->fetch())//print to front end
+      {
+        array_push($output, $row);
+      }
+      echo json_encode($output);
+    }
