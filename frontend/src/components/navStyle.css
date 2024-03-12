@@ -1,21 +1,24 @@
 nav {
-    display: flex;
+    /* display: flex; */
     justify-content: space-between;
     align-items: center;
     padding: 35px;
-    background-color: #ffffff; 
+    background-color: white; 
   }
   
   .navbar-links-container {
     font-size: larger;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
     gap: 30px;
     color: white;
   }
 
   .navbar-links-container a {
-    color: black; /* Set your desired link color */
-    text-decoration: none; /* Remove default underline */
+    color: black;
+    align-items: center;
+    text-decoration: none;
   }
   
   .primary-button{
