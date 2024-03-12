@@ -1,38 +1,15 @@
 import React, { useState } from 'react'
 import './navStyle.css';
+import { Link } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({ page }) => {
 
-    const [openMenu, setOpenMenu] = useState(false)
-    const menuOptions = [
-        {
-            text:"Home",
-            //icon:<HomeIcon/>
-        },
-        {
-            text:"About",
-            //icon:<HomeIcon/>
-        },
-        {
-            text:"Contacts",
-            //icon:<HomeIcon/>
-        }
-    ]
-
-  return (<nav>
-    <div className='nav-logo-container'>
-
-    </div>
+  return (
+  <nav>
     <div className='navbar-links-container'>
-        <a href="">Home</a>
-        <a href="">About</a>
-        <a href="">Contacts</a>
-    <div className='login-button'>
-        <a href="">Login</a>
-    </div>
-        
-    </div>
-    <div className='navbar-menu-container'>
+        <Link to="/">Home</Link>
+        <Link to="/AboutUs">About</Link>
+        <Link to="/">Login</Link>
     </div>
   </nav>)
 }
