@@ -1,7 +1,7 @@
 <?php
-// @todo Replace the following defined constant with the URL which runs the 
+// @todo Replace the following defined constant with the URL which runs the
 // program requiring authentication.
-define ("DEVELOPER_URL", "http://studentnet.cs.manchester.ac.uk/authenticate/demonstration.php");
+define ("DEVELOPER_URL", "https://web.cs.manchester.ac.uk/e95848cb/first_group_project");
 
 // Define the location of the service on the Computer Science server.
 define("AUTHENTICATION_SERVICE_URL", "http://studentnet.cs.manchester.ac.uk/authenticate/");
