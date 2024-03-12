@@ -18,7 +18,7 @@ const AboutUs = () => {
             rate and review the lecturers and course units at The University of Manchester.
             </p>
             <h2>OUR TEAM</h2>
-            <p>Saleh Al Zayer | Conor Bourne | Muhammad Kalmani | Hamza Khan | Leo Makhnovskiy</p>
+            <p>Saleh Alzayer | Conor Bourne | Muhammad Kalmani | Hamza Khan | Ayush Kumar | Leo Makhnovskiy</p>
             <h1>CONTACTS</h1>
             <p>sample@email.com</p>
         </div>
