@@ -8,6 +8,8 @@ import Home from './Pages/home/Home';
 import Review from './Pages/submit_reviews/Review';
 import NotFoundPage from './Pages/error/NotFoundPage';
 import AboutUs from './Pages/about_us/AboutUs';
+import Lecturers from './Pages/lecturers/Lecturers';
+import CourseUnit from './Pages/course_units/CourseUnit';
 
 /* 
 Notes
@@ -28,6 +30,14 @@ const router = createBrowserRouter([
   {
     path: '/AboutUs',
     element: <AboutUs />,
+  },
+  {
+    path: '/Lecturers',
+    element: <Lecturers />,
+  },
+  {
+    path: '/CourseUnit',
+    element: <CourseUnit />,
   },
 ]);
 

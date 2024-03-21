@@ -1,14 +1,22 @@
 import React from 'react';
-import Navbar from '../../components/Navbar';
-import BodySection from './BodySection';
+import HomeNavbar from '../../components/HomeNavbar';
 import './homeStyle.css';
+import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
     <div>
-       <Navbar />
+       <HomeNavbar />
        <div className='home-container'>
-        <BodySection />
+        <h1>EDURATE</h1>
+        <p>DETAILED REVIEWS AND DISCUSSIONS OF LECTURERS AND COURSE UNITS</p>
+       </div>
+       <div className="button-container">
+        <Link to="/CourseUnit" className="button">Course Units</Link>
+        <Link to="/lecturers" className="button">Lecturers</Link>
+       </div>
+       <div>
+        <Link to="/aboutus" className="about-button">About Us</Link>
        </div>
     </div>
   )

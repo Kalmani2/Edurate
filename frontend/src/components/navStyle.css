@@ -1,26 +1,48 @@
-nav {
-    /* display: flex; */
-    justify-content: space-between;
-    align-items: center;
-    padding: 35px;
-    background-color: white; 
-  }
-  
-  .navbar-links-container {
-    font-size: larger;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 30px;
-    color: white;
-  }
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100px;
+  width: 100%;
+  background-color: white;
+  border-bottom: 2px solid black;
+  z-index: 1000; /* Ensures navbar is on top of other content */
+}
 
-  .navbar-links-container a {
-    color: black;
-    align-items: center;
-    text-decoration: none;
-  }
-  
-  .primary-button{
-    align-items:end;
-  }
+.navbar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.links {
+  font-size:x-large;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
+  color: white;
+
+}
+
+.links a {
+  color: black;
+  align-items: center;
+  text-decoration: none;
+}
+
+.logo {
+  /* Add styling for your logo */
+}
+
+.spacer {
+  flex-grow: 1;
+}
+
+.login-button {
+  /* Add styling for your login button */
+  border: 1px solid black;
+  padding: 5px 10px;
+  cursor: pointer;
+}

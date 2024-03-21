@@ -1,24 +1,74 @@
 body {
-    margin: 0; /* Remove default margin to ensure full-width background */
-    padding: 0; /* Remove default padding */
+    margin: 0;
+    padding: 0; 
     background-color: rgb(103, 42, 145); /* Set the background color for the entire page */
   }
 
 .home-container {
     padding: 20px;
-  }
-  
-  .body-section {
     text-align: center;
-    margin-top: 50px;
+    margin-top: 100px;
+
   }
   
-  .body-section h1 {
+  .home-container h1 {
     font-size: 4em;
     color: white;
   }
   
-  .body-section p {
+  .home-container p {
     font-size: 1.2em;
     color: #ffffff;
+  }
+
+  .nav-buttons{
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap; /* Changed from wrap to nowrap to keep buttons on the same line */
+    margin-top: 10px;
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .button {
+    padding: 20px 40px;
+    width: 10%;
+    margin: 10px;
+    font-size: 1.5rem; /* Adjust font size as needed */
+    text-decoration: none;
+    color: #000000;
+    background-color: #ffffff; /* Blue color for buttons, you can adjust this */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .button:hover {
+    background-color: #b300a4; /* Darker shade of blue on hover */
+  }
+  
+  .about-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10%;
+    padding: 20px 40px;
+    margin: 10px;
+    font-size: 1.5rem; /* Adjust font size as needed */
+    text-decoration: none;
+    color: #000000;
+    background-color: #ffffff; /* Blue color for buttons, you can adjust this */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .about-button:hover {
+    background-color: #b300a4;
   }
