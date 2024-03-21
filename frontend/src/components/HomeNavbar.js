@@ -1,15 +1,18 @@
 import React from 'react';
 import './navStyle.css';
+import react_logo from './react_logo.png';
 import { Link } from "react-router-dom";
 
 const HomeNavbar = ({ page }) => {
   return (
     <div className="navbar">
       <div className="navbar-container">
-        <div className="logo">Your Logo</div>
+        <div>
+          <img src={react_logo} alt="Logo" className="logo"/>
+        </div>
         <div className="spacer"></div>
-        <div className="login-button">
-            <Link to="/">Login</Link>
+        <div className='login-box'>
+            <Link to="/" className='login-button'>LOGIN</Link>
         </div>
       </div>
     </div>

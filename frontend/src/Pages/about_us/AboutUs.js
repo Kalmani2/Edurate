@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from '../../components/Navbar';
-import guy from '../../components/guy.jpg';
+import group_picture from '../../components/group_photo.jpg';
 import './aboutStyle.css';
 
 const AboutUs = () => {
@@ -19,10 +19,12 @@ const AboutUs = () => {
             </p>
             <h2>OUR TEAM</h2>
             <p>Saleh Alzayer | Conor Bourne | Muhammad Kalmani | Hamza Khan | Ayush Kumar | Leo Makhnovskiy</p>
-            <h1>CONTACTS</h1>
-            <p>sample@email.com</p>
+            <h2>CONTACT</h2>
+            <p>edurate_team@gmail.com</p>
         </div>
-        <img src={guy} alt="This is a picture of us" className='group-picture'/>
+        <div className='picture-container'>
+          <img src={group_picture} alt="This is a picture of us" className='group-picture'/>
+        </div>
     </div>
   );
 };

@@ -1,30 +1,31 @@
 body {
     margin: 0;
     padding: 0; 
-    background-color: rgb(103, 42, 145); /* Set the background color for the entire page */
+    background-color: rgb(103, 42, 145); /* Page background color */
   }
 
 .home-container {
     padding: 20px;
     text-align: center;
-    margin-top: 100px;
-
+    margin-top: 90px;
   }
   
   .home-container h1 {
-    font-size: 4em;
+    font-family: 'Times New Roman', serif;
+    font-size: 5em;
     color: white;
   }
   
   .home-container p {
-    font-size: 1.2em;
+    font-size: 1.5em;
+    font-weight: bold;
     color: #ffffff;
   }
 
   .nav-buttons{
     display: flex;
     justify-content: center;
-    flex-wrap: nowrap; /* Changed from wrap to nowrap to keep buttons on the same line */
+    flex-wrap: nowrap;
     margin-top: 10px;
   }
 
@@ -35,40 +36,50 @@ body {
   }
   
   .button {
-    padding: 20px 40px;
+    padding: 30px 60px;
     width: 10%;
-    margin: 10px;
-    font-size: 1.5rem; /* Adjust font size as needed */
+    margin: 20px;
+    font-size: 1.5em;
+    font-weight: 600;
+    text-align: center;
     text-decoration: none;
     color: #000000;
-    background-color: #ffffff; /* Blue color for buttons, you can adjust this */
-    border: none;
-    border-radius: 8px;
+    background-color: #ffffff;
+    border: 4px solid yellow;
+    border-radius: 10px;
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
   
   .button:hover {
-    background-color: #b300a4; /* Darker shade of blue on hover */
+    background-color: yellow;
+  }
+
+  .about-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   
   .about-button {
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
     width: 10%;
-    padding: 20px 40px;
-    margin: 10px;
-    font-size: 1.5rem; /* Adjust font size as needed */
+    padding: 30px 60px;
+    margin: 20px;
+    font-size: 1.5rem;
+    font-weight: 600;
     text-decoration: none;
     color: #000000;
-    background-color: #ffffff; /* Blue color for buttons, you can adjust this */
-    border: none;
-    border-radius: 8px;
+    background-color: #ffffff; 
+    border: 4px solid yellow;
+    border-radius: 10px;
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
 
   .about-button:hover {
-    background-color: #b300a4;
+    background-color: yellow;
   }
