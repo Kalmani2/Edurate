@@ -1,4 +1,45 @@
 .not-found-container{
+    margin-top: 200px;
     text-align: center;
     color: white;
+}
+
+.error404 {
+    font-size: 600%;
+    font-weight: bold;
+}
+
+.return-container{
+    font-size: 150%;
+    color: black;
+}
+
+.return-button{
+    display: inline-block; /* Ensure the button takes up only as much space as necessary */
+    padding: 10px 20px; /* Adjust padding as needed */
+    border: 2px solid black; /* Border style */
+    border-radius: 5px; /* Rounded corners */
+    background-color: white;
+}
+
+.return-button:hover {
+    background-color: yellow;
+}
+
+.return-container a{
+    color: black;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 205px;
+}
+
+.error-logo {
+    width: 10%; 
+    height: auto;
 }
