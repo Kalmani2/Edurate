@@ -1,7 +1,6 @@
 import React from 'react';
 import Navbar from '../../components/Navbar';
 import './lecturersStyle.css';
-import { Link } from "react-router-dom";
 
 const Lecturers = () => {
   return (

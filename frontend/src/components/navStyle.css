@@ -61,7 +61,7 @@
   font-weight: bold;
   padding: 5px 10px;
   cursor: pointer;
-  color: black; /* Apply color directly to .login-button */
-  align-items: center; /* This property is not applicable to anchor elements */
+  color: black;
+  align-items: center;
   text-decoration: none;
 }

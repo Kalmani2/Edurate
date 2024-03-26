@@ -1,0 +1,88 @@
+.form-container {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+  }
+
+  .dropdown-container {
+    margin-top: -20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Center vertically */
+  }
+
+.dropdown-label {
+    display: block;
+    margin-bottom: 5px;
+    color: white;
+    font-size: x-large;
+    font-weight: bold;
+}
+
+.review-container {
+    font-family: 'Times New Roman', serif;
+    color: white;
+    font-size: x-large;
+    padding: 20px;
+    text-align: center;
+    margin-top: 90px;
+}
+
+.rating-submission-container,
+.review-submission-container {
+
+    display: flex; /* Use flexbox for centering */
+    justify-content: center; /* Center horizontally */
+}
+
+.rating-submission {
+    display: block;
+    margin-bottom: 5px;
+    color: white;
+    font-size: x-large;
+    font-weight: bold;
+}
+  
+.review-submission {
+    width: 100%; /* Adjust the width of the review box */
+    height: 100px;
+}
+
+.review-submission label {
+    display: block;
+    margin-bottom: 5px;
+    color: white;
+    font-size: x-large;
+    font-weight: bold;
+}
+
+.review-submission textarea {
+    width: 400px; /* Make the textarea fill the entire width of its container */
+    height: 200px;
+    padding: 10px; /* Add padding to the textarea */
+    border: 2px solid yellow; /* Add a border to the textarea */
+    border-radius: 5px; /* Add border radius to round the corners */
+    resize: none; /* Allow vertical resizing of the textarea */
+    font-size: large;
+    font-family: Arial, Helvetica, sans-serif;
+}
+  
+.submit-button-container {
+    margin-top: 13%;
+    display: flex;
+    justify-content: center;
+}
+
+.submit-button {
+    background-color: white;
+    height: 60px;
+    width: 120px;
+    font-weight: bold;
+    font-size: large;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button:hover{
+    background-color: yellow;
+}
