@@ -6,7 +6,7 @@
 
   // Load the configuration file containing your database credentials
   require_once('config.inc.php');
-  require_once('database_script.php')
+  require_once('database_script.php');
 
   // Connect to the group database
   $conn = new mysqli($database_host, $database_user, $database_pass, $group_dbnames[0]);
